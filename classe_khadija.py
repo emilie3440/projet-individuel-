@@ -10,7 +10,7 @@ from classes_Émilie import Timer
 
 
 class Data():
-    def __init__(self,file):
+    def __init__(self, file):
         self.file = str(file) #file lien/nom
         self.dataFrame = self.readFile() # cest le dataframe soit le tableau en version pandas
 
@@ -62,26 +62,33 @@ class Data():
     
     def getTrash(self):
         return self.trash # retourne un dictionnaire le gros truc
+    
     def getFishNameList(self):
         fishNames = [name for name in self.fishEncyclopedia.keys()]
         return fishNames #retourne la liste de tous les noms des poisssons
+    
     def getTrashNameList(self):
         trashNames = [name for name in self.trash.keys()]
         return trashNames #retourne la liste de tous les noms des déchets
+    
     def getAllNamesList(self):
             all = []
             all.extend(self.getTrashNameList())
             all.extend(self.getFishNameList())
             return all # retourne tous les noms des objets
+    
     def getFishAllStatsList(self): #tres specifique:elle prend les stats du dict et les met dans une list exemple de l'affichage list(1,23,hello,1212)
         fishStats = [value for dictio in self.fishEncyclopedia.values() for value in dictio.values()] # rentre dans le premier dict, et puis dans le deuxiemeet extrait les stats du dict 2
         return fishStats # retourne TOUS les valeurs et les mets dans une liste
+    
     def getFishSpecificStatsList(self, name): #tres specifique: au lieu de retourner les valeurs du poisson dans un dict, elle le fait liste style
        valueDict = self.fishEncyclopedia[name] #retourne le dictionnaire des stats du poisson
        fishNameStats = [value for value in valueDict.values()]
        return fishNameStats
+    
     def getFishSpecific(self, name):
         return self.fishEncyclopedia[name] # retourne les stats du poissons (dans un dictionnaire)
+    
     def getTrashSpecific(self,name):
         return self.trash[name] #retourne les stats du dechets dans un dictionnaire
         
@@ -301,16 +308,16 @@ class Fishing(ctk.CTkFrame):
         self.win = status
         
 class ImageConfig():
-    def __init__(self,fileLight,fileDark,x,y):
+    def __init__(self, fileLight, fileDark, x, y):
         
-        temp = self.readFile(fileLight,fileDark)
+        temp = self.readFile(fileLight, fileDark)
         if temp is not None:
             self.fileLight,self.fileDark = temp
             self.x = x
             self.y = y
             self.myImg = self.createImage()
 
-    def readFile(self,file1, file2): 
+    def readFile(self, file1, file2): 
         try:
            Image.open(file1)
            Image.open(file2)
@@ -319,9 +326,11 @@ class ImageConfig():
             return None
                         
         return file1,file2
+    
     def createImage(self):
-        img = ctk.CTkImage(light_image=Image.open(self.fileLight),dark_image=Image.open(self.fileDark),size=(self.x,self.y))
+        img = ctk.CTkImage(light_image=Image.open(self.fileLight), dark_image=Image.open(self.fileDark), size=(self.x,self.y))
         return img
+    
     def getImage(self):
         return self.myImg
 
