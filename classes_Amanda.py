@@ -143,7 +143,7 @@ class newGameScreen(ctk.CTkFrame):
         else:
             self.master.user.setUserName(name)
             self.master.show_frame(GameScreen)
-
+Data
 class GameScreen(ctk.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
@@ -564,12 +564,29 @@ class GameScreen(ctk.CTkFrame):
         self.enviro_left_panel = ctk.CTkFrame(self.enviro_container,fg_color="#dee6ed", width=275, height=525)
         self.enviro_left_panel.pack(side = 'right', padx = 10)
 
+        #pour info de l'utilisateur
         self.enviro_user_panel = ctk.CTkFrame(self.enviro_container,fg_color="#dee6ed", width=255, height=80)
+        self.enviro_user_panel.pack_propagate(False)
         self.enviro_user_panel.pack(anchor = 'nw', pady = 10, padx = 10)
 
         self.enviro_name_label = ctk.CTkLabel(self.enviro_user_panel, text = self.master.user.getUserName(), font=("arial", 21, 'bold'), wraplength=200)
         self.enviro_name_label.pack(pady = 10, side = 'left', padx = 20)
-        
+
+        self.enviro_name_label = ctk.CTkLabel(self.enviro_user_panel, text = f'Niveau : {self.master.user.getUserLevel()}')
+        self.enviro_name_label.pack(pady = 9, anchor = 'e', padx = 20)
+
+        self.enviro_fish_label = ctk.CTkLabel(self.enviro_user_panel, text = f'Poissons total : {self.master.user.getUserNbFish()}')
+        self.enviro_fish_label.pack(pady = 0, anchor = 'e', padx = 20)
+        #self.enviro_fish_label.place(x=137, y=40)
+
+        #pour instruction
+        self.enviro_instru_panel = ctk.CTkFrame(self.enviro_container,fg_color="#dee6ed", width=355, height=80)
+        self.enviro_instru_panel.pack_propagate(False)
+        self.enviro_instru_panel.place(x=300, y=10)
+
+        self.enviro_instru_label = ctk.CTkLabel(self.enviro_instru_panel, text = f'Choisir un environnement', font=("arial", 21, 'bold'))
+        self.enviro_instru_label.place(x=45, y=25)
+    
 
 
     #######################
@@ -805,7 +822,7 @@ class GameScreen(ctk.CTkFrame):
                 current_fish_image = ImageConfig(path, path, 100, 100)
                 self.gallery_dict[self.current_catch.name].configure(image = current_fish_image.getImage())
 
-            self.user_fish_label.configure(text = f'Poissons : {self.master.user.getUserNbFish()}')
+            self.user_fish_label.configure(text = f'Poissons total : {self.master.user.getUserNbFish()}')
             if self.master.user.isLeveledUp():
                 self.user_level_label.configure(text = f'Niveau : {self.master.user.getUserLevel()}')
 

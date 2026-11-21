@@ -25,6 +25,9 @@ class User():
         self.nbTrash = 0
         self.nbCatch = 0
 
+        #environnement sélectionné
+        self.selectedEnviro = 'base'
+
 
     #setters
     #après avoir demander le nom
@@ -44,7 +47,10 @@ class User():
         self.nbTrash = nbTrash
 
     def setUserNbCatsh(self, nbCatch):
-            self.nbCatsh = nbCatch
+        self.nbCatsh = nbCatch
+
+    def setUserSelectedEnviro(self, selectedEnviro):
+        self.selectedEnviro = selectedEnviro
 
 
     #getters
@@ -65,6 +71,9 @@ class User():
 
     def getUserNbCatch(self):
         return self.nbCatch
+
+    def getSelectedEnviro(self):
+        return self.selectedEnviro
 
 
     #met à jour l'inventaire, le total de poissons, de déchets et les deux ensemble
@@ -101,6 +110,8 @@ class Catch():
 
     #doit être créé avant la pêche car le temps d'attente, le temps de pêche et le nombre de clics pour la pêche sont fait ici
     def __init__(self, data):
+
+        
 
         #on veut un poisson/déchet au hasard
         self.name = random.choice(data.getAllNamesList())
