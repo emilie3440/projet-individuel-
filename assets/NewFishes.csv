@@ -1,24 +1,24 @@
-name;startWeight;finishWeight;startSize;finishSize;isFish;description;rarity,environment
-Poisson-rouge;0.9;1.1;20;30;VRAI;Longévité : 15 ans, Régime : Carnivore, Statut : Préoccupation mineure;uncommon,Taiwan
-Poisson-grenouille verruqueux;0.03;0.09;9;15;VRAI;Longévité : 5 ans, Régime : Carnivore, Statut : Préoccupation mineure;common,Taiwan
-Poisson-papillon à chevrons;0.04;0.08;12;18;VRAI;Longévité : 9 ans, Régime : Corallivore, Statut : Quasi menacé;rare,Taiwan
-Poisson-perroquet de Bowers;1;1.8;30;40;VRAI;Longévité : 11 ans, Régime : Herbivore, Statut : Quasi menacé;rare,Taiwan
-Poisson voilier du Pacifique;50;60;234;348;VRAI;Longévité : 13 ans, Régime : Carnivore, Statut : Vulnérable;legendary,Taiwan
-Poisson lune;1.2;2;180;330;VRAI;Longévité : 18 ans, Régime : Omnivore à tendance carnivore et planctophage, Statut : Vulnérable;epic,Taiwan
-Demoiselle de Dick;0.015;0.03;5;11.6;VRAI;Longévité : 9 ans, Régime : Omnivore à tendance carnivore, Statut : Quasi menacé;rare,Taiwan
-Rhinogobius formosanus;0.001;0.005;4;8;VRAI;Longévité : 3 ans, Régime : Omnivore, Statut : Vulnérable;epic,Taiwan
-Girelle-paon jaune;0.8;1;20;30;VRAI;Longévité : 6 ans, Régime : Carnivore, Statut : Préoccupation mineure;common,Taiwan
-Labre à deux taches;0.001;0.007;4.2;5.9;VRAI;Longévité : 12 ans, Régime : Crustacivore, echinodermes et malacophage, Statut : Préoccupation mineure;uncommon,Taiwan
-Épervier lutin;0.01;0.025;6;10;VRAI;Longévité : 8 ans, Régime : Carnivore, Statut : Préoccupation mineure;common,Taiwan
-Carpe koï;2;10;50;120;VRAI;Longévité : 65 ans, Régime : Omnivore, Statut : Préoccupation mineure;uncommon,Taiwan
-Poisson porc-épic orbiculaire;0.1;0.7;25;30;VRAI;Longévité : 12 ans, Régime : Carnivore, Statut : Préoccupation mineure;common,Taiwan
-Mérou bleu;5;10;185;122;VRAI;Longévité : 40 ans, Régime : Carnivore, Statut : Préoccupation mineure;common,Taiwan
-Clés;0.03;0.08;5;10;FALSE;Peut-être que tu pourras ouvrir quelque chose avec.;uncommon,all
-Casquette;0.07;0.12;18;26;FALSE;Huh, c'est bizarre...;uncommon,all
-Montre de poche;0.06;0.15;4.5;6.5;FALSE;Très sophistiquée.;rare,all
-Sac-en-plastique;0.005;0.02;30;50;FALSE;Il y en a partout, malheureusement.;common,all
-Algues;0.05;0.4;15;60;FALSE;C'est bon pour l'écosystème.;common,all
-Branche d'arbre;0.3;2.5;25;100;FALSE;Il en faudra beaucoup pour faire un feu de camp.;common,all
-Botte;0.5;1.4;25;38;FALSE;Un peu trop grande pour toi.;uncommon,all
-Corde;0.2;0.8;150;350;FALSE;Hyper longue... Peut-être pour ton bateau imaginaire.;common,all
-peluche;0.08;0.35;15;25;FALSE;Ça me rappelle mon enfance...;rare,all
+name;startWeight;finishWeight;startSize;finishSize;isFish;description;rarity;environment
+Épervier lutin;0.01;0.025;6;10;TRUE;Longévité : 8 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
+Girelle-paon jaune;0.8;1;20;30;TRUE;Longévité : 6 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
+Mérou bleu;5;10;185;122;TRUE;Longévité : 40 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
+Poisson-grenouille verruqueux;0.03;0.09;9;15;TRUE;Longévité : 5 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
+Poisson porc-épic orbiculaire;0.1;0.7;25;30;TRUE;Longévité : 12 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
+Carpe koï;2;10;50;120;TRUE;Longévité : 65 ans, Régime : Omnivore, Statut : Préoccupation mineure;uncommon;Taïwan
+Labre à deux taches;0.001;0.007;4.2;5.9;TRUE;Longévité : 12 ans, Régime : Crustacivore, echinodermes et malacophage, Statut : Préoccupation mineure;uncommon;Taïwan
+Poisson rouge;0.9;1.1;20;30;TRUE;Longévité : 15 ans, Régime : Carnivore, Statut : Préoccupation mineure;uncommon;Taïwan
+Demoiselle de Dick;0.015;0.03;5;11.6;TRUE;Longévité : 9 ans, Régime : Omnivore à tendance carnivore, Statut : Quasi menacé;rare;Taïwan
+Poisson-papillon à chevrons;0.04;0.08;12;18;TRUE;Longévité : 9 ans, Régime : Corallivore, Statut : Quasi menacé;rare;Taïwan
+Poisson-perroquet de Bowers;1;1.8;30;40;TRUE;Longévité : 11 ans, Régime : Herbivore, Statut : Quasi menacé;rare;Taïwan
+Poisson lune;1.2;2;180;330;TRUE;Longévité : 18 ans, Régime : Omnivore à tendance carnivore et planctophage, Statut : Vulnérable;epic;Taïwan
+Rhinogobius formosanus;0.001;0.005;4;8;TRUE;Longévité : 3 ans, Régime : Omnivore, Statut : Vulnérable;epic;Taïwan
+Poisson voilier du Pacifique;50;60;234;348;TRUE;Longévité : 13 ans, Régime : Carnivore, Statut : Vulnérable;legendary;Taïwan
+Clés;0.03;0.08;5;10;FALSE;Peut-être que tu pourras ouvrir quelque chose avec.;uncommon;all
+Casquette;0.07;0.12;18;26;FALSE;Huh, c'est bizarre...;uncommon;all
+Montre de poche;0.06;0.15;4.5;6.5;FALSE;Très sophistiquée.;rare;all
+Sac en plastique;0.005;0.02;30;50;FALSE;Il y en a partout, malheureusement.;common;all
+Algues;0.05;0.4;15;60;FALSE;C'est bon pour l'écosystème.;common;all
+Branche d'arbre;0.3;2.5;25;100;FALSE;Il en faudra beaucoup pour faire un feu de camp.;common;all
+Botte;0.5;1.4;25;38;FALSE;Un peu trop grande pour toi.;uncommon;all
+Corde;0.2;0.8;150;350;FALSE;Hyper longue... Peut-être pour ton bateau imaginaire.;common;all
+Peluche;0.08;0.35;15;25;FALSE;Ça me rappelle mon enfance...;rare;all

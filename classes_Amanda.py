@@ -143,7 +143,7 @@ class newGameScreen(ctk.CTkFrame):
         else:
             self.master.user.setUserName(name)
             self.master.show_frame(GameScreen)
-Data
+
 class GameScreen(ctk.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
@@ -226,19 +226,19 @@ class GameScreen(ctk.CTkFrame):
 
         #--------------------------------------------
         ##création du frame avec la ''librairie'' de tous les poissons qui est scrollable
-        self.gallery_frame_scroll = ctk.CTkScrollableFrame(self.left_panel,fg_color="#dee6ed")
+        self.gallery_frame_scroll = ctk.CTkScrollableFrame(self.left_panel, fg_color="#dee6ed")
         self.gallery_frame_scroll.pack(side = 'top', pady = 5, fill = 'both', expand = True)
-        self.gallery_frame_scroll.grid_columnconfigure(0,weight = 1)
-        self.gallery_frame_scroll.grid_columnconfigure(1,weight = 1)
+        self.gallery_frame_scroll.grid_columnconfigure(0, weight = 1)
+        self.gallery_frame_scroll.grid_columnconfigure(1, weight = 1)
 
         
         current_row = 0
         current_column = 0
 
         self.gallery_dict = dict()
-        for i in self.master.data.getFishNameList():
+        for i in self.master.data.getEnviroFishNameList("Taïwan"):
             path = f"assets/{i}.png"
-            current_fish_image = ImageConfig(path,path,100,100)
+            current_fish_image = ImageConfig(path, path, 100, 100)
             current_button = ctk.CTkButton(self.gallery_frame_scroll,
                                            image=current_fish_image.getImage(),
                                              command = lambda i=i: self.selected_fish(i),
@@ -249,7 +249,7 @@ class GameScreen(ctk.CTkFrame):
                                              height=100,width=100,
                                              hover_color="#fcf8f8",
                                              corner_radius=0)
-            current_button.grid(pady = 5,padx = 5,
+            current_button.grid(pady = 5, padx = 5,
                                 row = current_row, 
                                 column = current_column)
             
@@ -284,7 +284,7 @@ class GameScreen(ctk.CTkFrame):
     #Colonne milieu, etang, timer, lancer la ligne#
     ###############################################
     def create_center_panel(self):
-        self.center_panel = ctk.CTkFrame(self.main_container,fg_color="#9fb498")
+        self.center_panel = ctk.CTkFrame(self.main_container, fg_color="#9fb498")
         self.center_panel.grid(row = 0, column = 1, sticky = 'nsew', pady = 5, padx = 5)
 
         ##header avec le nom de l'environnement
@@ -293,18 +293,15 @@ class GameScreen(ctk.CTkFrame):
                                     corner_radius=10)
         self.header_frame.pack(fill = 'both', pady = 10, padx = 15)
         environment_name_label = ctk.CTkLabel(self.header_frame, 
-                                    text= "Étang de pêche", 
+                                    text= "Littoral de Taïwan", 
                                     font=('ariel', 15, 'bold'))
-        environment_name_label.pack(padx = 5, pady = 5,side = 'left')
+        environment_name_label.pack(padx = 10, pady = 5,side = 'left')
         
 
-        #NE FONCTIONNE PAS POUR L'INSTANT
-        ##le gif de l'environnement
-        #environment_gif = GifImage(self.center_panel,"assets/ocean.gif", 100, 100, 5)
-        #environment_gif.pack(pady = 5, padx = 5)
-        path = r"assets/Enviro.png"
-        environment_img = ImageConfig(path,path,360,360)
-        self.environment_label = ctk.CTkLabel(self.center_panel, image=environment_img.getImage(),text = '')
+        
+        path = r"assets/Taïwan1.png"
+        environment_img = ImageConfig(path, path, 360, 360)
+        self.environment_label = ctk.CTkLabel(self.center_panel, image=environment_img.getImage(), text = '')
         self.environment_label.pack()
         ##bar de progression
         self.reel_bar = ctk.CTkProgressBar(
@@ -345,7 +342,7 @@ class GameScreen(ctk.CTkFrame):
     #Colonne de droite, détails du poisson#
     #######################################
     def create_right_panel(self):
-        self.right_panel = ctk.CTkFrame(self.main_container,fg_color="#dee6ed",corner_radius=10)
+        self.right_panel = ctk.CTkFrame(self.main_container, fg_color="#dee6ed", corner_radius=10)
         self.right_panel.grid(row = 0, column = 2, sticky = 'nsew', pady = 10, padx = 10)
 
         label_selec = ctk.CTkLabel(self.right_panel, text = 'Sélection :')
@@ -370,10 +367,10 @@ class GameScreen(ctk.CTkFrame):
         self.label_rarity = ctk.CTkLabel(self.right_panel,text = 'N/A')
         self.label_rarity.pack(pady = 5)
 
-        label_desc = ctk.CTkLabel(self.right_panel, text = 'Description')
+        label_desc = ctk.CTkLabel(self.right_panel, text = 'Description :')
         label_desc.pack(pady = 5)
 
-        self.label_fish_desc = ctk.CTkLabel(self.right_panel,text = 'Aucun poisson de sélectionné!',wraplength = 180)
+        self.label_fish_desc = ctk.CTkLabel(self.right_panel,text = 'Aucun poisson de sélectionné!', wraplength = 180)
         self.label_fish_desc.pack(pady = 5)
 
         label_inventory = ctk.CTkLabel(self.right_panel,text = 'Inventaire :')
@@ -425,146 +422,12 @@ class GameScreen(ctk.CTkFrame):
         canvas.get_tk_widget().pack(expand=True, fill="both", padx=10, pady=10)
 
 
-    #gauche dans les environnements
-    def create_enviro_left_panel(self):
-        #Creation du l'écran de gauche
-        self.enviro_left_panel = ctk.CTkFrame(self.enviro_container,fg_color="#9fb498")
-        self.enviro_left_panel.grid(row = 0, column = 0, sticky = 'nsew', pady = 10, padx = 10)
-
-        #--------------------------------------------
-        #création du frame avec les info du joueur (nom, niveau, nmb de poissons)
-        self.user_info_frame = ctk.CTkFrame(self.enviro_left_panel,fg_color="#dee6ed", height = 50)
-        self.user_info_frame.pack(side = 'top', pady = (0,10), fill = 'x')
-        #montre le nom du joueur
-        self.user_name_label = ctk.CTkLabel(self.user_info_frame, text = self.master.user.getUserName(),font=("arial", 21, 'bold'), wraplength=200)
-        self.user_name_label.pack(pady = 10, side = 'left', padx = 20)
-        #montre le niveau du joueur
-        self.user_level_label = ctk.CTkLabel(self.user_info_frame, text = f'Niveau : {self.master.user.getUserLevel()}')
-        self.user_level_label.pack(pady = 4,anchor = 'e', padx = 20)
-        #montre le nmb de poissons total attrapes
-        self.user_fish_label = ctk.CTkLabel(self.user_info_frame, text = f'Poissons total : {self.master.user.getUserNbFish()}')
-        self.user_fish_label.pack(pady = 1,anchor = 'e', padx = 20)
-        #montre le nb de poissons attrapes en cet environnement
-        self.user_fishEnviro_label = ctk.CTkLabel(self.user_info_frame, text = f'Poissons ici : {self.master.user.getUserNbFish()}')
-        self.user_fishEnviro_label.pack(pady = 4,anchor = 'e', padx = 20)
-
-
-        #--------------------------------------------
-        ##création du frame avec la ''librairie'' de tous les poissons qui est scrollable
-        self.enviro_gallery_frame_scroll = ctk.CTkScrollableFrame(self.left_panel,fg_color="#dee6ed")
-        self.enviro_gallery_frame_scroll.pack(side = 'top', pady = 5, fill = 'both', expand = True)
-        self.enviro_gallery_frame_scroll.grid_columnconfigure(0,weight = 1)
-        self.enviro_gallery_frame_scroll.grid_columnconfigure(1,weight = 1)
-
-        
-        current_row = 0
-        current_column = 0
-
-        self.enviro_gallery_dict = dict()
-        for i in self.master.data.getFishNameList():
-            path = f"assets/{i}.png"
-            current_fish_image = ImageConfig(path,path,100,100)
-            current_button = ctk.CTkButton(self.enviro_gallery_frame_scroll,
-                                           image=current_fish_image.getImage(),
-                                             command = lambda i=i: self.selected_fish(i),
-                                             border_color ="#66ce7f", 
-                                             border_width=0,
-                                             text = '',
-                                             fg_color="#dee6ed",
-                                             height=100,width=100,
-                                             hover_color="#fcf8f8",
-                                             corner_radius=0)
-            current_button.grid(pady = 5,padx = 5,
-                                row = current_row, 
-                                column = current_column)
-            
-            if not any(catch.name == i for catch in self.master.user.inventory) :
-                original_img = Image.open(path)
-
-                enhancer = ImageEnhance.Brightness(original_img)
-                dark_img = enhancer.enhance(0.15)
-
-                ctk_dark_img = ctk.CTkImage(light_image=dark_img, 
-                                                dark_image=dark_img, 
-                                                size=(100, 100))
-
-                current_button.configure(image = ctk_dark_img)
-
-
-            self.enviro_gallery_dict[i] = current_button
-
-            if current_column == 0:
-                current_column = 1
-            else:
-                current_column = 0
-                current_row +=1
-
-
-    #centre dans les environnements
-    def create_enviro_center_panel(self):
-        self.enviro_center_panel = ctk.CTkFrame(self.enviro_container,fg_color="#9fb498")
-        self.enviro_center_panel.grid(row = 0, column = 1, sticky = 'nsew', pady = 10, padx = 5)
-    
-        ##header disant de choisir un environnement
-        self.enviro_header_frame = ctk.CTkFrame(self.enviro_center_panel, 
-                                        fg_color= "#dee6ed",
-                                        corner_radius=10)
-        self.enviro_header_frame.pack(fill = 'both', pady = 10, padx = 15)
-        environment_label = ctk.CTkLabel(self.enviro_header_frame, 
-                                        text= "Choisir un environnement", 
-                                        font=('ariel', 15, 'bold'))
-        environment_label.pack(padx = 5, pady = 5,side = 'left')
-
-
-    #droite dans les environnements
-    def create_enviro_right_panel(self):
-        
-        self.enviro_right_panel = ctk.CTkFrame(self.enviro_container,fg_color="#dee6ed",corner_radius=10)
-        self.enviro_right_panel.grid(row = 0, column = 2, sticky = 'nsew', pady = 10, padx = 10)
-        
-        label_selec = ctk.CTkLabel(self.enviro_right_panel, text = 'Sélection :')
-        label_selec.pack(pady = 5)
-        
-        self.enviro_label_fish_name =ctk.CTkLabel(self.enviro_right_panel, text = "Aucun")
-        self.enviro_label_fish_name.pack(pady = 5)
-        
-        self.enviro_frame_fish_image = ctk.CTkFrame(self.enviro_right_panel, 
-                                             height=150, width=150, 
-                                             border_color="#9fb498", 
-                                             border_width=2,
-                                             corner_radius=0)
-        self.enviro_frame_fish_image.pack(pady = 5)
-    
-        fish_image = ImageConfig(r"assets/NoSelection.jpg",r"assets/NoSelection.jpg", 150,150)
-        self.enviro_label_fish_image = ctk.CTkLabel(self.enviro_frame_fish_image, 
-                                             image=fish_image.getImage(),
-                                             text = '')
-        self.enviro_label_fish_image.pack(anchor = 'center',padx = 2, pady = 2)
-        
-        self.enviro_label_rarity = ctk.CTkLabel(self.enviro_right_panel,text = 'N/A')
-        self.enviro_label_rarity.pack(pady = 5)
-        
-        label_desc = ctk.CTkLabel(self.enviro_right_panel, text = 'Description')
-        label_desc.pack(pady = 5)
-        
-        self.enviro_label_fish_desc = ctk.CTkLabel(self.enviro_right_panel,text = 'Aucun poisson de sélectionné!',wraplength = 180)
-        self.enviro_label_fish_desc.pack(pady = 5)
-        
-        label_inventory = ctk.CTkLabel(self.enviro_right_panel,text = 'Inventaire :')
-        label_inventory.pack(pady = 5,padx = 10, anchor = 'w')
-        
-        self.enviro_inventory_frame_scroll = ctk.CTkScrollableFrame(self.enviro_right_panel)
-        self.enviro_inventory_frame_scroll.pack(pady=5, padx = 10, expand = True, fill = 'both')
-        
-        self.enviro_current_selected_name = None
-
-
-
+    #visuel de Environnement
     def create_enviro_panel(self):
         self.enviro_left_panel = ctk.CTkFrame(self.enviro_container,fg_color="#dee6ed", width=275, height=525)
         self.enviro_left_panel.pack(side = 'right', padx = 10)
 
-        #pour info de l'utilisateur
+        #pour les info de l'utilisateur
         self.enviro_user_panel = ctk.CTkFrame(self.enviro_container,fg_color="#dee6ed", width=255, height=80)
         self.enviro_user_panel.pack_propagate(False)
         self.enviro_user_panel.pack(anchor = 'nw', pady = 10, padx = 10)
@@ -735,12 +598,12 @@ class GameScreen(ctk.CTkFrame):
 
             list_fish = self.master.data.getFishSpecificStatsList(fish_name).copy()
 
-            self.label_fish_desc.configure(text = list_fish[-2])
+            self.label_fish_desc.configure(text = list_fish[-3])
 
-            self.label_rarity.configure(text = list_fish[-1])
+            self.label_rarity.configure(text = list_fish[-2])
 
             path = f"assets/{fish_name}.png"
-            fish_image = ImageConfig(path,path, 150,150)
+            fish_image = ImageConfig(path, path, 150, 150)
             self.label_fish_image.configure(image = fish_image.getImage())
 
     def modify_inventory_list(self, fish_name):
@@ -767,7 +630,7 @@ class GameScreen(ctk.CTkFrame):
         self.fishing_timer = None
 
         #génère un catch 
-        self.current_catch = Catch(self.master.data)
+        self.current_catch = Catch(self.master.data, self.master.user.getSelectedEnviro)
 
         #temps d'attente selon la rareté
         sec = self.current_catch.getTimeWaiting()
@@ -998,7 +861,7 @@ class MainApp(ctk.CTk):
         self.protocol("WM_DELETE_WINDOW", self.on_closing)
 
         self.user = User()
-        self.data = Data(r"assets/fishData.csv")
+        self.data = Data(r"assets/newFishes.csv")
         
         self.current_frame = None
         self.show_frame(TitleScreen)

@@ -26,7 +26,7 @@ class User():
         self.nbCatch = 0
 
         #environnement sélectionné
-        self.selectedEnviro = 'base'
+        self.selectedEnviro = "Taïwan"
 
 
     #setters
@@ -109,15 +109,15 @@ class Catch():
     '''Poisson ou déchet possible de pêcher'''
 
     #doit être créé avant la pêche car le temps d'attente, le temps de pêche et le nombre de clics pour la pêche sont fait ici
-    def __init__(self, data):
+    def __init__(self, data, enviro):
 
         
 
         #on veut un poisson/déchet au hasard
-        self.name = random.choice(data.getAllNamesList())
+        self.name = random.choice(data.getEnviroAllNamesList(enviro))
 
         #pour les poissons
-        if self.name in data.getFishNameList():
+        if self.name in data.getEnviroFishNameList(enviro):
 
             #on veut le poids (en kg) au hasard dans la plage associée
             self.weight = random.uniform(float(data.getFishSpecific(self.name)["startWeight"]), float(data.getFishSpecific(self.name)["finishWeight"]))
