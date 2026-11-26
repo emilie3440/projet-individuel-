@@ -13,6 +13,34 @@ Poisson-perroquet de Bowers;1;1.8;30;40;TRUE;Longévité : 11 ans, Régime : Her
 Poisson lune;1.2;2;180;330;TRUE;Longévité : 18 ans, Régime : Omnivore à tendance carnivore et planctophage, Statut : Vulnérable;epic;Taïwan
 Rhinogobius formosanus;0.001;0.005;4;8;TRUE;Longévité : 3 ans, Régime : Omnivore, Statut : Vulnérable;epic;Taïwan
 Poisson voilier du Pacifique;50;60;234;348;TRUE;Longévité : 13 ans, Régime : Carnivore, Statut : Vulnérable;legendary;Taïwan
+Faux-néon;0.001;0.002;1;3;TRUE;Longévité : 5 ans, Régime : Carnivore à tendance herbivore, Statut : Préoccupation mineure;common;Amazone
+Apistogramma agassizii;0.002;0.012;3;9;TRUE;Longévité : 6 ans, Régime : Omnivore à tendance carnivore, Statut : Préoccupation mineure;common;Amazone
+Hypostomus hemicochliodon;0.25;0.51;21;36;TRUE;Longévité : 5 ans, Régime : Alguivore, détritivore, herbivore et xylophage, Statut : Préoccupation mineure;common;Amazone
+Coeur saignant;0.002;0.01;4;6;TRUE;Longévité : 5 ans, Régime : Omnivore, Statut : Préoccupation mineure;common;Amazone
+Apistogramma eremnopyge;0.001;0.003;4;6;TRUE;Longévité : 2 ans, Régime : Omnivore à tendance carnivore, Statut : Préoccupation mineure;common;Amazone
+Pacu noir;30;40;60;100;TRUE;Longévité : 25 ans, Régime : Omnivore à tendance herbivore, Statut : Quasi menacé;uncommon;Amazone
+Spectrolebias reticulatus;0.001;0.002;0.001;0.002;TRUE;Longévité : 1 an, Régime : Carnivore, Statut : Quasi menacé;uncommon;Amazone
+Hoplisoma panda;0.002;0.005;2;6;TRUE;Longévité : 5 ans, Régime : Omnivore, Statut : Quasi menacé;uncommon;Amazone
+Apistogramma iniridae;0.001;0.006;5;9;TRUE;Longévité : 3 ans, Régime : Omnivore à tendance carnivore, Statut : Vulnérable;rare;Amazone
+Baryancistrus niveatus;0.31;0.46;20;30;TRUE;Longévité : 17 ans, Régime : Omnivore, Statut : Vulnérable;rare;Amazone
+Pléco solaire;0.28;0.3;20;30;TRUE;Longévité : 25 ans, Régime : Omnivore à tendance carnivore, Statut : Vulnérable;rare;Amazone
+Peckoltia compta;0.014;0.025;9;11;TRUE;Longévité : 15 ans, Régime : Omnivore, Statut : En danger;epic;Amazone
+Otocinclus cocama;0.001;0.003;2;4.5;TRUE;Longévité : 4 ans, Régime : Herbivore, Statut : En danger;epic;Amazone
+Poisson-zèbre;0.001;0.002;4;8;TRUE;Longévité : 15 ans, Régime : Omnivore, Statut : En danger critique d'extinction;legendary;Amazone
+Benthochromis tricoti;0.05;0.15;12;18;TRUE;Longévité : 8 ans, Régime : Planctophage, Statut : Préoccupation mineure;common;Lac Tanganyika
+Distichodus à six bandes;5;10;40;76;TRUE;Longévité : 8 ans, Régime : Omnivore à tendance herbivore, Statut : Préoccupation mineure;common;Lac Tanganyika
+Ophthalmotilapia nasuta;0.05;0.115;18;20;TRUE;Longévité : 8 ans, Régime : Planctophage, Statut : Préoccupation mineure;common;Lac Tanganyika
+Mangeur d'écailles;0.22;0.36;10;25;TRUE;Longévité : 8 ans, Régime : Lépidophage, Statut : Préoccupation mineure;common;Lac Tanganyika
+Mbaraga;1.5;4;35;60;TRUE;Longévité : 10 ans, Régime : Omnivore à tendance alguivore, Statut : Préoccupation mineure;common;Lac Tanganyika
+Boulengerochromis microlepis;2.75;5;60;80;TRUE;Longévité : 12 ans, Régime : Carnivore, Statut : Quasi menacé;uncommon;Lac Tanganyika
+Callochromis melanostigma;0.04;0.08;10;15;TRUE;Longévité : 8 ans, Régime : Omnivore, Statut : Quasi menacé;uncommon;Lac Tanganyika
+Tropheus moorii;0.03;0.06;11;15;TRUE;Longévité : 10 ans, Régime : Herbivore, Statut : Quasi menacé;uncommon;Lac Tanganyika
+Frontosa;0.7;0.8;20;33;TRUE;Longévité : 8 ans, Régime : Carnivore, Statut : Quasi menacé;rare;Lac Tanganyika
+Ophthalmotilapia heterodonta;0.05;0.09;12;15;TRUE;Longévité : 8 ans, Régime : Carnivore et planctophage, Statut : Quasi menacé;rare;Lac Tanganyika
+Altolamprologus calvus;0.02;0.08;7;13;TRUE;Longévité : 10 ans, Régime : Carnivore, Statut : Quasi menacé;rare;Lac Tanganyika
+Ectodus descampsii;0.003;0.008;6;11;TRUE;Longévité : 7 ans, Régime : Omnivore à tendance carnivore, Statut : Vulnérable;epic;Lac Tanganyika
+Tropheus duboisi;0.009;0.015;10;12;TRUE;Longévité : 12 ans, Régime : Herbivore, Statut : En danger;epic;Lac Tanganyika
+Julido masqué;0.003;0.007;6;10;TRUE;Longévité : 5 ans, Régime : Carnivore, Statut : En danger critique d'extinction;legendary;Lac Tanganyika
 Clés;0.03;0.08;5;10;FALSE;Peut-être que tu pourras ouvrir quelque chose avec.;uncommon;all
 Casquette;0.07;0.12;18;26;FALSE;Huh, c'est bizarre...;uncommon;all
 Montre de poche;0.06;0.15;4.5;6.5;FALSE;Très sophistiquée.;rare;all
