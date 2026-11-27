@@ -185,8 +185,9 @@ class GameScreen(ctk.CTkFrame):
        self.load_btn.pack(padx = 10, side = 'left')
 
         #Bouton Stats
-       self.stats_btn = ctk.CTkButton(self.top_menu, text = 'Statistiques du jeu', command = self.on_stats,fg_color="#5297A8", hover_color="#3773a3", corner_radius=8)
-       self.stats_btn.pack(padx = 10, side = 'left')
+       self.stats_menu = ctk.CTkOptionMenu(self.top_menu, values = ['Pour tout', 'Pour Lac Tanganyika', 'Pour Amazone', 'Pour Taïwan', 'Retourner'], command = self.on_stats, fg_color="#5297A8", button_color="#3773a3", button_hover_color="#3773a3", corner_radius=8)
+       self.stats_menu.pack(padx = 10, side = 'left')
+       self.stats_menu.set('Statistiques du jeu')
 
         #Bouton Enrivonnements
        self.enviro_btn = ctk.CTkButton(self.top_menu, text = 'Environnements', command = self.on_enviro,fg_color="#5297A8", hover_color="#3773a3", corner_radius=8)
@@ -218,10 +219,10 @@ class GameScreen(ctk.CTkFrame):
         self.user_level_label = ctk.CTkLabel(self.user_info_frame, text = f'Niveau : {self.master.user.getUserLevel()}')
         self.user_level_label.pack(pady = 4,anchor = 'e', padx = 20)
         #montre le nmb de poissons total attrapes
-        self.user_fish_label = ctk.CTkLabel(self.user_info_frame, text = f'Poissons total : {self.master.user.getUserNbFish()}')
+        self.user_fish_label = ctk.CTkLabel(self.user_info_frame, text = f'Poissons total : {self.master.user.getUserNbFishTotal()}')
         self.user_fish_label.pack(pady = 1,anchor = 'e', padx = 20)
         #montre le nb de poissons attrapes en cet environnement
-        self.user_fishEnviro_label = ctk.CTkLabel(self.user_info_frame, text = f'Poissons ici : {self.master.user.getUserNbFish()}')
+        self.user_fishEnviro_label = ctk.CTkLabel(self.user_info_frame, text = f'Poissons ici : {self.master.user.getUserNbFishEnviro()}')
         self.user_fishEnviro_label.pack(pady = 4,anchor = 'e', padx = 20)
 
         #--------------------------------------------
@@ -236,7 +237,7 @@ class GameScreen(ctk.CTkFrame):
         current_column = 0
 
         self.gallery_dict = dict()
-        for i in self.master.data.getEnviroFishNameList("Taïwan"):
+        for i in self.master.data.getEnviroFishNameList(self.master.user.getSelectedEnviro()):
             path = f"assets/{i}.png"
             current_fish_image = ImageConfig(path, path, 100, 100)
             current_button = ctk.CTkButton(self.gallery_frame_scroll,
@@ -253,7 +254,7 @@ class GameScreen(ctk.CTkFrame):
                                 row = current_row, 
                                 column = current_column)
             
-            if not any(catch.name == i for catch in self.master.user.inventory) :
+            if not any(catch.name == i for catch in self.master.user.inventoryTotal) :
                 original_img = Image.open(path)
 
                 enhancer = ImageEnhance.Brightness(original_img)
@@ -292,15 +293,27 @@ class GameScreen(ctk.CTkFrame):
                                     fg_color= "#dee6ed",
                                     corner_radius=10)
         self.header_frame.pack(fill = 'both', pady = 10, padx = 15)
+
+        enviroName = ""
+        enviroPathImage = ""
+
+        if self.master.user.getSelectedEnviro() == "Tanganyika":
+            enviroName = "Lac Tanganyika"
+            enviroPathImage = r"assets/Lac Tanganyika.png"
+        elif self.master.user.getSelectedEnviro() == "Amazone":
+            enviroName = "Amazone"
+            enviroPathImage = r"assets/Amazone.png"
+        elif self.master.user.getSelectedEnviro() == "Taïwan":
+            enviroName = "Taïwan"
+            enviroPathImage = r"assets/Taïwan.png"
+
         environment_name_label = ctk.CTkLabel(self.header_frame, 
-                                    text= "Littoral de Taïwan", 
+                                    text= enviroName, 
                                     font=('ariel', 15, 'bold'))
         environment_name_label.pack(padx = 10, pady = 5,side = 'left')
+    
         
-
-        
-        path = r"assets/Taïwan1.png"
-        environment_img = ImageConfig(path, path, 360, 360)
+        environment_img = ImageConfig(enviroPathImage, enviroPathImage, 360, 360)
         self.environment_label = ctk.CTkLabel(self.center_panel, image=environment_img.getImage(), text = '')
         self.environment_label.pack()
         ##bar de progression
@@ -381,15 +394,28 @@ class GameScreen(ctk.CTkFrame):
 
         self.current_selected_name = None
 
-    #Puisque la class StatsPlot n'est pas fonctionnelle et la remise est bientôt
-    def create_stats_panel(self):
+    #Pour avoir les statistiques de tout
+    def create_stats_panelAll(self):
+        #au cas où il passe d'un environnement à tout
+        if hasattr(self, 'stats_container') and self.stats_container.winfo_exists():
+            self.stats_container.destroy() 
+
+        self.stats_container = ctk.CTkFrame(self, fg_color="#9fb498")
+                
+        if hasattr(self, 'enviro_container') and self.enviro_container.winfo_exists():
+            self.enviro_container.destroy() 
+        if hasattr(self, 'main_container') and self.main_container.winfo_exists():
+            self.main_container.forget() 
+        
+        self.stats_container.pack(expand=True, fill="both", padx=10, pady=5)
+
         #stats du joueur
-        nb_fishes = self.master.user.getUserNbFish()
-        nb_junk = self.master.user.getUserNbTrash()
+        nb_fishes = self.master.user.getUserNbFishTotal()
+        nb_junk = self.master.user.getUserNbTrashTotal()
 
         #liste des poissons différents attrapés
         found_fishes = []
-        for x in self.master.user.inventory:
+        for x in self.master.user.inventoryTotal:
             if x.isFish and x.name not in found_fishes:
                 found_fishes.append(x.name)
 
@@ -438,7 +464,7 @@ class GameScreen(ctk.CTkFrame):
         self.enviro_name_label = ctk.CTkLabel(self.enviro_user_panel, text = f'Niveau : {self.master.user.getUserLevel()}')
         self.enviro_name_label.pack(pady = 9, anchor = 'e', padx = 20)
 
-        self.enviro_fish_label = ctk.CTkLabel(self.enviro_user_panel, text = f'Poissons total : {self.master.user.getUserNbFish()}')
+        self.enviro_fish_label = ctk.CTkLabel(self.enviro_user_panel, text = f'Poissons total : {self.master.user.getUserNbFishTotal()}')
         self.enviro_fish_label.pack(pady = 0, anchor = 'e', padx = 20)
         #self.enviro_fish_label.place(x=137, y=40)
 
@@ -466,7 +492,7 @@ class GameScreen(ctk.CTkFrame):
             saving = SavingSystem(self.master.user, path, self.master.data)
             saving.setUsername(self.master.user.getUserName())
             saving.setLevel(self.master.user.getUserLevel())
-            saving.setInv(self.master.user.getUserInventory())
+            saving.setInv(self.master.user.getUserInventoryTotal())
             saving.savingToFile()
             print("Partie sauvegardée dans", path)
 
@@ -483,7 +509,7 @@ class GameScreen(ctk.CTkFrame):
         #met a jour le ui
         self.user_name_label.configure(text = self.master.user.getUserName())
         self.user_level_label.configure(text = f'Niveau : {self.master.user.getUserLevel()}')
-        self.user_fish_label.configure(text = f'Poissons : {self.master.user.getUserNbFish()}')
+        self.user_fish_label.configure(text = f'Poissons : {self.master.user.getUserNbFishTotal()}')
 
         # 2.revele les poissons
         for item in self.master.user.inventory:
@@ -495,26 +521,26 @@ class GameScreen(ctk.CTkFrame):
     def on_options(self):
         print("Bouton options cliqué")
 
-    def on_stats(self):
-
-        self.stats_btn.configure(text = 'Retourner', command = self.on_return_fishing)
+    def on_stats(self, choice):
         self.enviro_btn.configure(text = 'Environnements', command = self.on_enviro)
 
-        self.stats_container = ctk.CTkFrame(self, fg_color="#9fb498")
+        if choice == 'Pour tout':
+            self.create_stats_panelAll()
+        elif choice == 'Pour Lac Tanganyika':
+            self.create_stats_panelEnviro('Tanganyika')
+        elif choice == 'Pour Amazone':
+            self.create_stats_panelEnviro('Amazone')
+        elif choice == 'Pour Taïwan':
+            self.create_stats_panelEnviro('Taïwan')
+        elif choice == 'Retourner':
+            self.on_return_fishing()
 
-        if hasattr(self, 'enviro_container') and self.enviro_container.winfo_exists():
-            self.enviro_container.destroy() 
-        if hasattr(self, 'main_container') and self.main_container.winfo_exists():
-            self.main_container.forget() 
-
-        self.stats_container.pack(expand=True, fill="both", padx=10, pady=5)
-
-        self.create_stats_panel()
+        
 
     def on_enviro(self):
     
         self.enviro_btn.configure(text = 'Retourner', command = self.on_return_fishing)
-        self.stats_btn.configure(text = 'Statistiques du jeu', command = self.on_stats)
+        self.stats_menu.set('Statistiques du jeu')
     
         self.enviro_container = ctk.CTkFrame(self, fg_color="#9fb498")
 
@@ -536,7 +562,7 @@ class GameScreen(ctk.CTkFrame):
         if hasattr(self, 'enviro_container') and self.enviro_container.winfo_exists():
             self.enviro_container.destroy() 
 
-        self.stats_btn.configure(text = 'Statistiques du jeu', command = self.on_stats)
+        self.stats_menu.set('Statistiques du jeu')
         self.enviro_btn.configure(text = 'Environnements', command = self.on_enviro)
         self.main_container.pack(expand=True, fill="both", padx=10, pady=5)
 
@@ -630,7 +656,7 @@ class GameScreen(ctk.CTkFrame):
         self.fishing_timer = None
 
         #génère un catch 
-        self.current_catch = Catch(self.master.data, self.master.user.getSelectedEnviro)
+        self.current_catch = Catch(self.master.data, self.master.user.getSelectedEnviro())
 
         #temps d'attente selon la rareté
         sec = self.current_catch.getTimeWaiting()
@@ -685,7 +711,7 @@ class GameScreen(ctk.CTkFrame):
                 current_fish_image = ImageConfig(path, path, 100, 100)
                 self.gallery_dict[self.current_catch.name].configure(image = current_fish_image.getImage())
 
-            self.user_fish_label.configure(text = f'Poissons total : {self.master.user.getUserNbFish()}')
+            self.user_fish_label.configure(text = f'Poissons total : {self.master.user.getUserNbFishTotal()}')
             if self.master.user.isLeveledUp():
                 self.user_level_label.configure(text = f'Niveau : {self.master.user.getUserLevel()}')
 

@@ -18,15 +18,28 @@ class User():
         self.level = 0
 
         #contiendra tout ce qui sera attrappé
-        self.inventory = []
+        self.inventoryTotal = []
 
         #seront mis à jour lors de chaque prise
-        self.nbFish = 0
-        self.nbTrash = 0
-        self.nbCatch = 0
+        #pour le total
+        self.nbFishTotal = 0
+        self.nbTrashTotal = 0
+        self.nbCatchTotal = 0
+
+        #par environnement
+        self.nbFishTanganyika = 0
+        self.nbTrashTanganyika = 0
+        self.nbCatchTanganyika = 0
+        self.nbFishAmazone = 0
+        self.nbTrashAmazone = 0
+        self.nbCatchAmazone = 0
+        self.nbFishTaïwan = 0
+        self.nbTrashTaïwan = 0
+        self.nbCatchTaïwan = 0
+
 
         #environnement sélectionné
-        self.selectedEnviro = "Taïwan"
+        self.selectedEnviro = "Tanganyika"
 
 
     #setters
@@ -38,7 +51,7 @@ class User():
         self.level = level
 
     def setUserInventory(self, inventory):
-        self.inventory = inventory
+        self.inventoryTotal = inventory
 
     def setUserNbFish(self, nbFish):
         self.nbFish = nbFish
@@ -60,16 +73,31 @@ class User():
     def getUserLevel(self):
         return self.level
 
-    def getUserInventory(self):
-        return self.inventory
+    def getUserInventoryTotal(self):
+        return self.inventoryTotal
 
-    def getUserNbFish(self):
-        return self.nbFish
+    def getUserNbFishTotal(self):
+        return self.nbFishTotal
 
-    def getUserNbTrash(self):
+    def getUserNbTrashTotal(self):
+        return self.nbTrashTotal
+
+    def getUserNbCatchTotal(self):
+        return self.nbCatchTotal
+
+    def getUserNbFishEnviro(self):
+        if self.selectedEnviro == "Tanganyika":
+            return self.nbFishTanganyika
+        elif self.selectedEnviro == "Amazone":
+            return self.nbFishAmazone
+        elif self.selectedEnviro == "Taïwan":
+            return self.nbFishTaïwan
+        
+    
+    def getUserNbTrashEnviro(self):
         return self.nbTrash
-
-    def getUserNbCatch(self):
+    
+    def getUserNbCatchEnviro(self):
         return self.nbCatch
 
     def getSelectedEnviro(self):
@@ -78,14 +106,37 @@ class User():
 
     #met à jour l'inventaire, le total de poissons, de déchets et les deux ensemble
     def updateInventory(self, catch):
-        self.inventory.append(catch)
-        self.nbCatch += 1
+        self.inventoryTotal.append(catch)
+        self.nbCatchTotal += 1
 
-        if catch.isFish:
-            self.nbFish += 1
-        else:
-            self.nbTrash += 1
+        if self.selectedEnviro == "Tanganyika":
+            self.nbCatchTanganyika += 1
+            if catch.isFish:
+                self.nbFishTotal += 1
+                self.nbFishTanganyika += 1
+            else:
+                self.nbTrashTotal += 1
+                self.nbTrashTanganyika += 1
 
+        elif self.selectedEnviro == "Amazone":
+            self.nbCatchAmazone += 1
+            if catch.isFish:
+                self.nbFishTotal += 1
+                self.nbFishAmazone += 1
+            else:
+                self.nbTrashTotal += 1
+                self.nbTrashAmazone += 1
+            
+        elif self.selectedEnviro == "Taïwan":
+            self.nbCatchTaïwan += 1
+            if catch.isFish:
+                self.nbFishTotal += 1
+                self.nbFishTaïwan += 1
+            else:
+                self.nbTrashTotal += 1
+                self.nbTrashTaïwan += 1
+
+            
 
     #met à jour le niveau avec une condition
     #si la condition est remplie on change le niveau et on retourne vrai, sinon on retourne faux 
@@ -97,7 +148,9 @@ class User():
         #niveau de l'utilisateur:                 0       1       2       3       4       5       6       7       8
         #total nécessaire pour changer de niveau:     1       3       8       15      24      35      48      53
         #différence avec le niveau précédent:        1       2       5       7       9       11      13      15
-        if self.nbFish >= (self.level + (sum(range(1, self.level+1))) * 2):
+        if self.nbFishTotal == 0:
+            return False
+        if self.nbFishTotal >= (self.level + (sum(range(1, self.level+1))) * 2):
             self.level += 1
             return True
         return False

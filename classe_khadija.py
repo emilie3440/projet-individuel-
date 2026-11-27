@@ -16,6 +16,8 @@ class Data():
 
         if self.dataFrame is not None:
             self.fishEncyclopedia = self.initFishDict() # executer direct après init + c'est un dictionnaire
+            self.fishEncyclopediaTanganyika = self.initEnviroFishDict("Tanganyika") #que de l'environnement Tanganyika
+            self.fishEncyclopediaAmazone = self.initEnviroFishDict("Amazone") #que de l'environnement Amazone
             self.fishEncyclopediaTaïwan = self.initEnviroFishDict("Taïwan") #que de l'environnement Taïwan
             self.trash = self.initTrashList() #c'est un dictionnaire
             
@@ -80,8 +82,16 @@ class Data():
         return fishNames #retourne la liste de tous les noms des poisssons
 
     def getEnviroFishNameList(self, enviro):
-        fishNames = [name for name in self.fishEncyclopediaTaïwan.keys()]
-        return fishNames #retourne la liste de tous les noms des poisssons
+        if enviro == "Tanganyika":
+            fishNames = [name for name in self.fishEncyclopediaTanganyika.keys()]
+            return fishNames #retourne la liste de tous les noms des poisssons
+        elif enviro == "Amazone":
+            fishNames = [name for name in self.fishEncyclopediaAmazone.keys()]
+            return fishNames
+        elif enviro == "Taïwan":
+            fishNames = [name for name in self.fishEncyclopediaTaïwan.keys()]
+            return fishNames
+        
     
     def getTrashNameList(self):
         trashNames = [name for name in self.trash.keys()]

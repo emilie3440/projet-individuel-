@@ -1,18 +1,18 @@
 name;startWeight;finishWeight;startSize;finishSize;isFish;description;rarity;environment
-Épervier lutin;0.01;0.025;6;10;TRUE;Longévité : 8 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
-Girelle-paon jaune;0.8;1;20;30;TRUE;Longévité : 6 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
-Mérou bleu;5;10;185;122;TRUE;Longévité : 40 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
-Poisson-grenouille verruqueux;0.03;0.09;9;15;TRUE;Longévité : 5 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
-Poisson porc-épic orbiculaire;0.1;0.7;25;30;TRUE;Longévité : 12 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
-Carpe koï;2;10;50;120;TRUE;Longévité : 65 ans, Régime : Omnivore, Statut : Préoccupation mineure;uncommon;Taïwan
-Labre à deux taches;0.001;0.007;4.2;5.9;TRUE;Longévité : 12 ans, Régime : Crustacivore, echinodermes et malacophage, Statut : Préoccupation mineure;uncommon;Taïwan
-Poisson rouge;0.9;1.1;20;30;TRUE;Longévité : 15 ans, Régime : Carnivore, Statut : Préoccupation mineure;uncommon;Taïwan
-Demoiselle de Dick;0.015;0.03;5;11.6;TRUE;Longévité : 9 ans, Régime : Omnivore à tendance carnivore, Statut : Quasi menacé;rare;Taïwan
-Poisson-papillon à chevrons;0.04;0.08;12;18;TRUE;Longévité : 9 ans, Régime : Corallivore, Statut : Quasi menacé;rare;Taïwan
-Poisson-perroquet de Bowers;1;1.8;30;40;TRUE;Longévité : 11 ans, Régime : Herbivore, Statut : Quasi menacé;rare;Taïwan
-Poisson lune;1.2;2;180;330;TRUE;Longévité : 18 ans, Régime : Omnivore à tendance carnivore et planctophage, Statut : Vulnérable;epic;Taïwan
-Rhinogobius formosanus;0.001;0.005;4;8;TRUE;Longévité : 3 ans, Régime : Omnivore, Statut : Vulnérable;epic;Taïwan
-Poisson voilier du Pacifique;50;60;234;348;TRUE;Longévité : 13 ans, Régime : Carnivore, Statut : Vulnérable;legendary;Taïwan
+Benthochromis tricoti;0.05;0.15;12;18;TRUE;Longévité : 8 ans, Régime : Planctophage, Statut : Préoccupation mineure;common;Tanganyika
+Distichodus à six bandes;5;10;40;76;TRUE;Longévité : 8 ans, Régime : Omnivore à tendance herbivore, Statut : Préoccupation mineure;common;Tanganyika
+Ophthalmotilapia nasuta;0.05;0.115;18;20;TRUE;Longévité : 8 ans, Régime : Planctophage, Statut : Préoccupation mineure;common;Tanganyika
+Mangeur d'écailles;0.22;0.36;10;25;TRUE;Longévité : 8 ans, Régime : Lépidophage, Statut : Préoccupation mineure;common;Tanganyika
+Mbaraga;1.5;4;35;60;TRUE;Longévité : 10 ans, Régime : Omnivore à tendance alguivore, Statut : Préoccupation mineure;common;Tanganyika
+Callochromis melanostigma;0.04;0.08;10;15;TRUE;Longévité : 8 ans, Régime : Omnivore, Statut : Quasi menacé;uncommon;Tanganyika
+Tropheus moorii;0.03;0.06;11;15;TRUE;Longévité : 10 ans, Régime : Herbivore, Statut : Quasi menacé;uncommon;Tanganyika
+Boulengerochromis microlepis;2.75;5;60;80;TRUE;Longévité : 12 ans, Régime : Carnivore, Statut : Quasi menacé;uncommon;Tanganyika
+Frontosa;0.7;0.8;20;33;TRUE;Longévité : 8 ans, Régime : Carnivore, Statut : Quasi menacé;rare;Tanganyika
+Ophthalmotilapia heterodonta;0.05;0.09;12;15;TRUE;Longévité : 8 ans, Régime : Carnivore et planctophage, Statut : Quasi menacé;rare;Tanganyika
+Altolamprologus calvus;0.02;0.08;7;13;TRUE;Longévité : 10 ans, Régime : Carnivore, Statut : Quasi menacé;rare;Tanganyika
+Ectodus descampsii;0.003;0.008;6;11;TRUE;Longévité : 7 ans, Régime : Omnivore à tendance carnivore, Statut : Vulnérable;epic;Tanganyika
+Tropheus duboisi;0.009;0.015;10;12;TRUE;Longévité : 12 ans, Régime : Herbivore, Statut : En danger;epic;Tanganyika
+Julido masqué;0.003;0.007;6;10;TRUE;Longévité : 5 ans, Régime : Carnivore, Statut : En danger critique d'extinction;legendary;Tanganyika
 Faux-néon;0.001;0.002;1;3;TRUE;Longévité : 5 ans, Régime : Carnivore à tendance herbivore, Statut : Préoccupation mineure;common;Amazone
 Apistogramma agassizii;0.002;0.012;3;9;TRUE;Longévité : 6 ans, Régime : Omnivore à tendance carnivore, Statut : Préoccupation mineure;common;Amazone
 Hypostomus hemicochliodon;0.25;0.51;21;36;TRUE;Longévité : 5 ans, Régime : Alguivore, détritivore, herbivore et xylophage, Statut : Préoccupation mineure;common;Amazone
@@ -27,20 +27,20 @@ Pléco solaire;0.28;0.3;20;30;TRUE;Longévité : 25 ans, Régime : Omnivore à t
 Peckoltia compta;0.014;0.025;9;11;TRUE;Longévité : 15 ans, Régime : Omnivore, Statut : En danger;epic;Amazone
 Otocinclus cocama;0.001;0.003;2;4.5;TRUE;Longévité : 4 ans, Régime : Herbivore, Statut : En danger;epic;Amazone
 Poisson-zèbre;0.001;0.002;4;8;TRUE;Longévité : 15 ans, Régime : Omnivore, Statut : En danger critique d'extinction;legendary;Amazone
-Benthochromis tricoti;0.05;0.15;12;18;TRUE;Longévité : 8 ans, Régime : Planctophage, Statut : Préoccupation mineure;common;Lac Tanganyika
-Distichodus à six bandes;5;10;40;76;TRUE;Longévité : 8 ans, Régime : Omnivore à tendance herbivore, Statut : Préoccupation mineure;common;Lac Tanganyika
-Ophthalmotilapia nasuta;0.05;0.115;18;20;TRUE;Longévité : 8 ans, Régime : Planctophage, Statut : Préoccupation mineure;common;Lac Tanganyika
-Mangeur d'écailles;0.22;0.36;10;25;TRUE;Longévité : 8 ans, Régime : Lépidophage, Statut : Préoccupation mineure;common;Lac Tanganyika
-Mbaraga;1.5;4;35;60;TRUE;Longévité : 10 ans, Régime : Omnivore à tendance alguivore, Statut : Préoccupation mineure;common;Lac Tanganyika
-Boulengerochromis microlepis;2.75;5;60;80;TRUE;Longévité : 12 ans, Régime : Carnivore, Statut : Quasi menacé;uncommon;Lac Tanganyika
-Callochromis melanostigma;0.04;0.08;10;15;TRUE;Longévité : 8 ans, Régime : Omnivore, Statut : Quasi menacé;uncommon;Lac Tanganyika
-Tropheus moorii;0.03;0.06;11;15;TRUE;Longévité : 10 ans, Régime : Herbivore, Statut : Quasi menacé;uncommon;Lac Tanganyika
-Frontosa;0.7;0.8;20;33;TRUE;Longévité : 8 ans, Régime : Carnivore, Statut : Quasi menacé;rare;Lac Tanganyika
-Ophthalmotilapia heterodonta;0.05;0.09;12;15;TRUE;Longévité : 8 ans, Régime : Carnivore et planctophage, Statut : Quasi menacé;rare;Lac Tanganyika
-Altolamprologus calvus;0.02;0.08;7;13;TRUE;Longévité : 10 ans, Régime : Carnivore, Statut : Quasi menacé;rare;Lac Tanganyika
-Ectodus descampsii;0.003;0.008;6;11;TRUE;Longévité : 7 ans, Régime : Omnivore à tendance carnivore, Statut : Vulnérable;epic;Lac Tanganyika
-Tropheus duboisi;0.009;0.015;10;12;TRUE;Longévité : 12 ans, Régime : Herbivore, Statut : En danger;epic;Lac Tanganyika
-Julido masqué;0.003;0.007;6;10;TRUE;Longévité : 5 ans, Régime : Carnivore, Statut : En danger critique d'extinction;legendary;Lac Tanganyika
+Épervier lutin;0.01;0.025;6;10;TRUE;Longévité : 8 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
+Girelle-paon jaune;0.8;1;20;30;TRUE;Longévité : 6 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
+Mérou bleu;5;10;185;122;TRUE;Longévité : 40 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
+Poisson-grenouille verruqueux;0.03;0.09;9;15;TRUE;Longévité : 5 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
+Poisson porc-épic orbiculaire;0.1;0.7;25;30;TRUE;Longévité : 12 ans, Régime : Carnivore, Statut : Préoccupation mineure;common;Taïwan
+Carpe koï;2;10;50;120;TRUE;Longévité : 65 ans, Régime : Omnivore, Statut : Préoccupation mineure;uncommon;Taïwan
+Labre à deux taches;0.001;0.007;4.2;5.9;TRUE;Longévité : 12 ans, Régime : Crustacivore, echinodermes et malacophage, Statut : Préoccupation mineure;uncommon;Taïwan
+Poisson rouge;0.9;1.1;20;30;TRUE;Longévité : 15 ans, Régime : Carnivore, Statut : Préoccupation mineure;uncommon;Taïwan
+Demoiselle de Dick;0.015;0.03;5;11.6;TRUE;Longévité : 9 ans, Régime : Omnivore à tendance carnivore, Statut : Quasi menacé;rare;Taïwan
+Poisson-papillon à chevrons;0.04;0.08;12;18;TRUE;Longévité : 9 ans, Régime : Corallivore, Statut : Quasi menacé;rare;Taïwan
+Poisson-perroquet de Bowers;1;1.8;30;40;TRUE;Longévité : 11 ans, Régime : Herbivore, Statut : Quasi menacé;rare;Taïwan
+Poisson lune;1.2;2;180;330;TRUE;Longévité : 18 ans, Régime : Omnivore à tendance carnivore et planctophage, Statut : Vulnérable;epic;Taïwan
+Rhinogobius formosanus;0.001;0.005;4;8;TRUE;Longévité : 3 ans, Régime : Omnivore, Statut : Vulnérable;epic;Taïwan
+Poisson voilier du Pacifique;50;60;234;348;TRUE;Longévité : 13 ans, Régime : Carnivore, Statut : Vulnérable;legendary;Taïwan
 Clés;0.03;0.08;5;10;FALSE;Peut-être que tu pourras ouvrir quelque chose avec.;uncommon;all
 Casquette;0.07;0.12;18;26;FALSE;Huh, c'est bizarre...;uncommon;all
 Montre de poche;0.06;0.15;4.5;6.5;FALSE;Très sophistiquée.;rare;all
